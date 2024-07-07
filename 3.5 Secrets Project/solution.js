@@ -28,8 +28,8 @@ app.post("/check", (req, res) => {
   if (userIsAuthorised) {
     res.sendFile(__dirname + "/public/secret.html");
   } else {
-    res.sendFile(__dirname + "/public/index.html");
-    //Alternatively res.redirect("/");
+    // res.sendFile(__dirname + "/public/index.html");
+    res.redirect("/");  //重定向到主页
   }
 });
 
