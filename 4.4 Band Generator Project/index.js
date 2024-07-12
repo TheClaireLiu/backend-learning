@@ -4,15 +4,7 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-//Step 3 - Make the styling show up.
-//Hint 1: CSS files are static files!
-//Hint 2: The header and footer are partials.
-//Hint 3: Add the CSS link in header.ejs
 app.use(express.static("public"));
-
-//Step 4 - Add a dynamic year to the footer.
-//Hint: Google to find out how to get the current year using JS.
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -20,16 +12,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  console.log("hello")
-  const randomAdj = adj[Math.floor(Math.random() * adj.length)];
-  const randomNoun = noun[Math.floor(Math.random() * noun.length)];
-  
-  res.render("index.ejs", {
-    randAdjective: randomAdj,
+  const randomAdjective = adj[Math.floor(Math.random()*adj.length)];
+  const randomNoun = noun[Math.floor(Math.random()*noun.length)];
+  let randAdj;
+  let randNoun;
+  res.render('index.ejs',{
+    randAdj: randomAdjective,
     randNoun: randomNoun,
   });
-  //3. Test zto make sure that the random words display in the h1 element in index.ejs
-
 });
 
 app.listen(port, () => {

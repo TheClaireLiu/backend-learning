@@ -1,17 +1,18 @@
 <!-- Step 3 Add Header -->
-<%- include("partials/header.ejs")%>
+<%- include("partials/header.ejs")  %>
 
-<% if(locals.randAdjective && locals.randNoun){%>
-  <h1>
-    <%= randAdjective %> 
-      <%= randNoun %>
-  </h1>
-<% } else{ %>
-  <h1>Welcome to the Band Generator</h1>
-<% }%>
+<% if(locals.randAdj && locals.randNoun){ %>
+
+  <h3><%= randAdj %> <%= randNoun%></h3>
+
+<% }else{ %>
+
+  <h3>Welcome to the Band Generator</h3>
+
+<%} %>
 
 <form action="/submit" method="POST">
-  <input type="submit" value="Generate Name">
+  <input type="submit" value="Generate Name" />
 </form>
-<!-- Step 3 Add Footer -->
-<%- include("partials/footer.ejs") %>
+
+<%- include("partials/footer.ejs")%>
