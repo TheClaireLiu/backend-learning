@@ -45,7 +45,7 @@ app.post("/jokes/:id", (req,res) => {
     jokeText: req.body.text,
     jokeType: req.body.type,
   };
-  const jokeIndex = jokes.findIndex((joke) => {res.query.id === id});
+  const jokeIndex = jokes.findIndex((joke) => {joke.id === id});
   jokes[jokeIndex] = replaceJoke;
   res.json(replaceJoke);
 });
