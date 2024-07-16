@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { render } from "ejs";
+import { render} from "ejs";
 
 const app = express();
 const port = 3000;
